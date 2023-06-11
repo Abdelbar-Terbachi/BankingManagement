@@ -1,0 +1,27 @@
+﻿@using GestionBanquaire.Models
+@model TransactionViewModel
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <h1>Gestion Banquaire - Transaction</h1>
+
+    <h2>User: @Model.User.Username</h2>
+
+    <p> Status du compte: @Model.User.AccountStatus</p>
+    <p>Balance: @Model.User.Balance</p>
+
+    <form method="post" asp-controller="Banking" asp-action="Invoice">
+        <input type="hidden" name="userId" value="@Model.User.Id" />
+
+        <div>
+            <label> Numéro de compte du Béneficiare:</label>
+            <input type="text" name="accountNumber" required />
+        </div>
+
+        <div>
+            <label>Montant à envoyer:</label>
+            <input type="number" name="amount" required step="0.01" />
+        </div>
+
+        <button type="submit">Envoyer</button>
+
+    </form>

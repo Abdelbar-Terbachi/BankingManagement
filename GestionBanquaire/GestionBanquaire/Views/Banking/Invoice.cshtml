@@ -1,0 +1,14 @@
+﻿@model dynamic
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <h1> Reçue </h1>
+
+    <h2> Details: </h2>
+    <ul>
+        <li>Utilisateur: @Model.UserName</li>
+        <li>Type d'operation: @Model.TransactionType</li>
+        <li>Balance actuelle: @Model.CurrentBalance</li>
+        <li>Montant du Transaction: @Model.TransactionAmount</li>
+        <li>Transaction ID: @Model.TransactionId</li>
+        <li>Date: @Model.DateTime</li>
+    </ul>

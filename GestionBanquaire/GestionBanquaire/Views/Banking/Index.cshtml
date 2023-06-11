@@ -1,0 +1,41 @@
+﻿@using GestionBanquaire.Models
+@model List<User>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <h1>Gestion Banquaire</h1>
+
+    <h2>Choisir l'utilisateur':</h2>
+    <form method="post" asp-controller="Banking" asp-action="Transaction">
+        <div>
+            <label for="userDropdown">Choisir le Compte:</label>
+            <select id="userDropdown" name="userId" required>
+                @foreach (var user in Model)
+                {
+                    <option value="@user.Id">@user.Username</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <label>Type d'operation:</label><br />
+            <label>
+                <input type="radio" name="transactionType" value="Credit" />
+                Credit
+            </label><br />
+            <label>
+                <input type="radio" name="transactionType" value="Debit" />
+                Debit
+            </label><br />
+            <label>
+                <input type="radio" name="transactionType" value="Transfer" />
+                Virement
+            </label>
+        </div>
+
+        <div>
+            <label>Montant:</label>
+            <input classe ="inputte" name="amount" step="1" required placeholder="Amount" />
+        </div>
+
+        <button type="submit">Valider</button>
+    </form>
